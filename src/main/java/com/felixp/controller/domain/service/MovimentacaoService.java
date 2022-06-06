@@ -34,10 +34,13 @@ public class MovimentacaoService {
 			movimentacao.setData(LocalDateTime.now());
 		}
 		if(movimentacao.getValor() <= 0) {
-			throw new ObjectNotFoundException("Digite um Valor");
+			throw new ObjectNotFoundException("Digite um Valor.");
 		}
 		if ( movimentacao.getTipoMovimento().equals(TipoMovimento.PAGAMENTO)){
 			Conta conta = contaService.findById(movimentacao.getConta().getId());
+			if(movimentacao.getValor()> conta.getSaldo()) {
+				throw new ObjectNotFoundException("Saldo insuficiente.");
+			}
 			conta.sacar(movimentacao.getValor());
 			ContaDTO dto = new ContaDTO(conta);
 			contaService.update(conta.getId(), dto);

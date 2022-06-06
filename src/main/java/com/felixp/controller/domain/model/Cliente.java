@@ -36,7 +36,7 @@ public  class Cliente implements Serializable{
 	@OneToMany(mappedBy = "cliente")
 	private List<Conta> contas = new ArrayList<>();
 	
-	@OneToOne( cascade = CascadeType.ALL)
+	@OneToOne( cascade = CascadeType.MERGE)
 	private Endereco endereco;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
