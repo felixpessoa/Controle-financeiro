@@ -1,1 +1,3 @@
 # Controle-financeiro
+
+o projeto esta separado em diferentes pacotes como o Domain que contem o pacote Model com as entidades, o pacote Repository com as interface estendida com o JpaRepository, O service com a regra de negocio. o Pacote api.controller fica os request, no request é chamado os métodos de service que executa a regra de negocio e finaliza com o repository que dando tudo certo ele retorna o resultado da requisição. No sistema tem o pacote dto que contem o dto de Conta e Movimento. Nesse sistema foi usado conceitos como mapeamento relacional, DTO(Data Transfer Object), POO, Hibernante com JPA com dois tipo de conexão um em Oracle db e outro com h2. Usei o CommandLineRunner para testar as entidades Envolvidas e os mapeamentos.
